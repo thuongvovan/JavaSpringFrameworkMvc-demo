@@ -1,6 +1,8 @@
 package com.ivs.common;
 
 import com.ivs.config.MyBatisDbConfig;
+import com.ivs.service.EmployeeService;
+
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.support.AbstractApplicationContext;
 
@@ -16,10 +18,10 @@ public class ConfigApplicationContextBean {
 		return context;
 	}
 	
-//	public EmployeeService getEmployeeService()
-//	{
-//		EmployeeService employeeService = (EmployeeService) getAbstractApplicationContext().getBean("employeeService");
-//		return employeeService;
-//	}
+	public EmployeeService getEmployeeService()
+	{
+		EmployeeService employeeService = (EmployeeService) getAbstractApplicationContext().getBean("EmployeeService");
+		return employeeService;
+	}
 	
 }
