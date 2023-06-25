@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.ivs.dao.EmployeeDao">
+	<insert id="insert" parameterType="employee">
+		INSERT INTO employee(id, name,  address,  department, phone, email)
+	    VALUES (#{id}, #{name},  #{address},  #{department}, #{phone}, #{email});
+	</insert>
+	
+	<update id="update" parameterType="employee">
+		update employee set 
+			name = #{name},
+			address = #{address},
+			department = #{department},
+			phone = #{phone},
+			email = #{email}
+		where  id = #{id};
+	</update>
+	
+	<delete id="delete" parameterType="employee">
+		delete from  employee 
+		where id = #{id};
+	</delete>
+	
+	<delete id="deleteById" parameterType="String">
+		delete from  employee 
+		where id = #{id};
+	</delete>
+	
+	<delete id="deleteAll">
+		delete from  employee;
+	</delete>
+	
+	<select id="select" parameterType="String" resultType="employee">
+		select * from  employee
+		where id = #{id};
+	</select>
+	
+	<select id="selectAll" resultMap="employeeList">
+		select * from  employee;
+	</select>
+	
+	<resultMap id="employeeList" type="employee">
+		<result property = "id" column = "id"/>
+		<result property = "name" column = "name"/>
+		<result property = "address" column = "address"/>
+		<result property = "department" column = "department"/>
+		<result property = "phone" column = "phone"/>
+		<result property = "email" column = "email"/>
+	</resultMap>
+</mapper>
